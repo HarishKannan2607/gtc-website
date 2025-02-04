@@ -1,0 +1,76 @@
+.robot-clash-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding: 1rem;
+  overflow: hidden;
+  z-index: 50;
+}
+
+.robot-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 12rem;
+}
+
+.robot-left {
+  width: 6rem;
+  height: 6rem;
+  color: #3b82f6; /* blue-500 */
+  animation: clash-left 1s infinite;
+}
+
+.robot-right {
+  width: 6rem;
+  height: 6rem;
+  color: #ef4444; /* red-500 */
+  transform: scaleX(-1);
+  animation: clash-right 1s infinite;
+}
+
+.lightning {
+  width: 4rem;
+  height: 4rem;
+  color: #eab308; /* yellow-500 */
+  opacity: 0;
+  animation: thunder 1s infinite;
+}
+
+@keyframes clash-left {
+  0% {
+    transform: translateX(-2rem);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-2rem);
+  }
+}
+
+@keyframes clash-right {
+  0% {
+    transform: translateX(2rem) scaleX(-1);
+  }
+  50% {
+    transform: translateX(0) scaleX(-1);
+  }
+  100% {
+    transform: translateX(2rem) scaleX(-1);
+  }
+}
+
+@keyframes thunder {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}

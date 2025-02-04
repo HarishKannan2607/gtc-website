@@ -1,0 +1,182 @@
+/* Body and HTML Settings */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+  background-image: url("https://wallpaperaccess.com/full/19674.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  transition: backdrop-filter 0.3s ease-in-out; /* Smooth transition for blur */
+  filter: hue-rotate(4deg) saturate(115%);
+}
+
+/* Header Section */
+.header {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 10px;
+  z-index: 1;
+}
+
+/* Fullscreen container with 4x2 Grid */
+.canvas {
+  box-shadow: 0px 0px 20px hsla(0, 0%, 100%, 0.221);
+  margin: 20px;
+  border-radius: 60px;
+  backdrop-filter: blur(4px);
+  background-color: hsla(0, 0%, 100%, 0.074);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 20px;
+  padding: 50px 60px;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+}
+
+/* Equal-sized Event Cards */
+.container {
+  position: relative;
+  width: 350px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Make sure nothing overflows */
+  transition: all 0.3s ease; /* Smooth transition for scaling */
+}
+
+/* Card Styling */
+#card {
+  position: relative;
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0px; /* Initial border radius is 0 */
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  transition: box-shadow 0.2s ease-in-out, opacity 0.3s ease-in-out,
+    border-radius 0.3s ease, background-position 0.3s ease;
+  scale: 95%;
+}
+
+/* Add a pseudo-element for the background image */
+#card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: -1; /* Send the background image behind the text */
+  transition: filter 0.3s ease-in-out; /* Removed blur */
+}
+
+/* Static Neon Glow Underneath the Cards */
+#card::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  height: 20px;
+  z-index: -1;
+  border-radius: 50%;
+}
+
+/* Title Styling */
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: absolute;
+  top: 40%;
+  z-index: 2;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+}
+
+/* Subtitle Styling */
+.subtitle {
+  position: absolute;
+  bottom: 10px;
+  left: 12px;
+  z-index: 1;
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  font-weight: normal; /* Initial font weight */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+  text-align: center;
+}
+
+/* Hover Effect: Card Transformation */
+.container:hover #card {
+  transform: scale(0.95); /* Slightly shrink the card */
+  border-radius: 50px; /* Change border-radius to 50px on hover */
+  box-shadow: 0px 0px 5px 1px rgba(180, 43, 1, 0.8),
+    /* Reduced glow radius and spread */ 0px 0px 10px 3px rgba(255, 8, 0, 0.6),
+    /* Reduced glow radius and spread */ 0px 0px 15px 4px rgba(255, 42, 0, 0.4); /* Reduced glow radius and spread */ /* Neon glow effect */
+
+  background-position: center bottom;
+}
+
+/* Hover Effect: Title moves to 1% */
+.container:hover .title {
+  top: 4%; /* Move title to the top */
+  font-size: 2.5rem; /* Optionally increase font size */
+}
+
+/* Hover Effect: Subtitle comes to center */
+.container:hover .subtitle {
+  opacity: 1;
+  transform: translateY(-50%); /* Center subtitle vertically */
+  font-weight: bold; /* Make the subtitle bold */
+  color: white; /* Make the subtitle white */
+  top: 58%;
+}
+
+/* Show subtitle when hovering */
+.container:hover .subtitle {
+  opacity: 1;
+  transform: translateY(-50%);
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 1200px) {
+  .canvas {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, auto);
+  }
+}
+
+@media (max-width: 768px) {
+  .canvas {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(8, auto);
+  }
+}
