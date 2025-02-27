@@ -13,7 +13,7 @@
 
 /* Volleyball */
 .volleyball {
-  color:#f59e0b;  
+  color:#f59e0b;  ;
   width: 6rem;
   height: 5rem;
   position: absolute;
@@ -84,9 +84,6 @@
   animation: chase-opponent 4s ease-in-out infinite;
 }
 
-/* Animations */
-
-/* Opponent bot animation (bot1) */
 @keyframes chase-opponent {
   0% {
     right: 51%;
