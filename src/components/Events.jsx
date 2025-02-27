@@ -1,71 +1,54 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Events.css";
+import RobotClashLoader from "./RobotClashLoader";
+import RobosoccerLoader from "./RobosoccerLoader";
+import RobotRace from "./RoboRace";
+import CarRace from "./CarRace";
 
 const Events = () => {
+  const [loadingEvent, setLoadingEvent] = useState("");
+
+  const handleClick = (event) => {
+    setLoadingEvent(event);
+    setTimeout(() => {
+      window.location.href = "https://unstop.com/";
+    }, 4000);
+  };
+
+  if (loadingEvent === "robowars") {
+    return <RobotClashLoader />;
+  }
+  if (loadingEvent === "robosoccer") {
+    return <RobosoccerLoader />;
+  }
+  if (loadingEvent === "RoboRace") {
+    return <RobotRace />;
+  }
+  if (loadingEvent === "CarRace") {
+    return <CarRace />;
+  }
+
   return (
     <div>
       {/* Header Section */}
       <header className="header">
-        <h1 className="animate-text primary-text">HACK THE PRESENT.</h1>
-        <h1 className="animate-text secondary-text">BUILD THE FUTURE.</h1>
-
-        <style>{`
-        .header {
-          margin-top: 20px;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          color: white;
-          padding: 10px;
-          z-index: 1;
-        }
-
-        .animate-text {
-          margin: 0;
-          font-family: "Clash Grotesk", sans-serif;
-          opacity: 0;
-          transform: translateY(20px);
-          animation: fadeUpIn 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-        }
-
-        .primary-text {
-          font-size: 80px;
-          animation-delay: 0.2s;
-        }
-
-        .secondary-text {
-          font-size: 32px;
-          color: hsla(0, 0%, 100%, 0.732);
-          animation-delay: 0.8s;
-        }
-
-        @keyframes fadeUpIn {
-          0% {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @media (max-width: 768px) {
-          .primary-text {
-            font-size: 48px;
-          }
-          
-          .secondary-text {
-            font-size: 24px;
-          }
-        }
-      `}</style>
+        <h1
+          className="animate-text primary-text"
+          style={{ fontSize: "3rem", margin: 0 }}
+        >
+          HACK THE PRESENT.
+        </h1>
+        <h1
+          className="animate-text secondary-text"
+          style={{ fontSize: "2rem", margin: 0 }}
+        >
+          BUILD THE FUTURE.
+        </h1>
       </header>
 
       <div className="canvas">
         {/* Event 1 - Robowars */}
-        <div className="container">
+        <div className="container" onClick={() => handleClick("robowars")}>
           <div id="card" style={{ backgroundImage: "url(robowars.png)" }}>
             <div className="title">Robowars</div>
             <div className="subtitle">
@@ -75,8 +58,8 @@ const Events = () => {
           </div>
         </div>
 
-        {/* Event 2 - Robo Soccer */}
-        <div className="container">
+        {/* Event 2 - RoboSoccer */}
+        <div className="container" onClick={() => handleClick("robosoccer")}>
           <div id="card" style={{ backgroundImage: "url(/robosoccer.png)" }}>
             <div className="title">RoboSoccer</div>
             <div className="subtitle">
@@ -86,30 +69,32 @@ const Events = () => {
           </div>
         </div>
 
-        {/* Event 3 - Drone Racing */}
-        <div className="container">
+        {/* drone racing */}
+        <div className="container" onClick={() => handleClick("RoboRace")}>
           <div id="card" style={{ backgroundImage: "url(/robot-drone.png)" }}>
             <div className="title">Drone Racing</div>
             <div className="subtitle">
               Race through obstacles to win! Navigate high-speed drones in a
-              thrilling aerial race against the clock.
+              thrilling aerial race.
             </div>
           </div>
         </div>
 
-        {/* Event 4 - Maze Dash */}
         <div className="container">
-          <div id="card" style={{ backgroundImage: "url(/robot-flag.png)" }}>
+          <div
+            id="card"
+            style={{ backgroundImage: "url(/robot-searching.png)" }}
+          >
             <div className="title">Maze Dash</div>
             <div className="subtitle">
               Navigate through the maze autonomously. Test your robot's ability
-              to find its way through complex mazes in real-time.
+              to find its way.
             </div>
           </div>
         </div>
 
         {/* Event 5 - RC Racing */}
-        <div className="container">
+        <div className="container" onClick={() => handleClick("CarRace")}>
           <div id="card" style={{ backgroundImage: "url(/robot-car.png)" }}>
             <div className="title">RC Racing</div>
             <div className="subtitle">
@@ -127,34 +112,6 @@ const Events = () => {
               AI tools to solve mini-project challenges. Innovate using AI
               technologies to develop solutions for real-world problems in just
               24 hours.
-            </div>
-          </div>
-        </div>
-
-        {/* Event 7 - Capture the Flag */}
-        <div className="container">
-          <div
-            id="card"
-            style={{ backgroundImage: "url(/robot-searching.png)" }}
-          >
-            <div className="title">Capture the Flag</div>
-            <div className="subtitle">
-              Solve puzzles and claim the flag! Use problem-solving skills and
-              teamwork to capture the flag in this cybersecurity-based event.
-            </div>
-          </div>
-        </div>
-
-        {/* Event 8 - CAD/Robot Design */}
-        <div className="container">
-          <div
-            id="card"
-            style={{ backgroundImage: "url(/cad-robot-design.jpg)" }}
-          >
-            <div className="title">CAD/Robot Design</div>
-            <div className="subtitle">
-              Design and prototype your robot virtually. Use CAD software to
-              create detailed designs and bring your robot ideas to life.
             </div>
           </div>
         </div>

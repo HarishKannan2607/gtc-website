@@ -1,0 +1,52 @@
+.robot-race-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.robot {
+  font-size: 100px;
+  position: absolute;
+  bottom: 298px;
+}
+
+.robot.blue {
+  color: #3b82f6;
+  left: 300px;
+  animation: moveRight 3s infinite ease-in-out alternate;
+}
+
+.robot.green {
+  color: #ef4444;
+  Right: 300px;
+  animation: moveLeft 3s infinite ease-in-out alternate;
+}
+
+
+@keyframes moveRight {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  50% {
+    transform: translateX(300px) translateY(-30px);
+  }
+  100% {
+    transform: translateX(600px) translateY(0);
+  }
+}
+
+@keyframes moveLeft {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  50% {
+    transform: translateX(-300px) translateY(-120px);
+  }
+  100% {
+    transform: translateX(-600px) translateY(0);
+  }
+}

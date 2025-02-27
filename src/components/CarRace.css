@@ -1,0 +1,37 @@
+
+.finish-line {
+    font-size: 160px;
+    color: #f59e0b;  
+    position: absolute;
+    right: 180px; /* Puts it at the end of the track */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.car-race-container{
+    padding: 0 30%;
+}
+
+.car {
+    font-size: 60px;
+    position: absolute;
+}
+
+.car.blue {
+    color: #3b82f6;
+    bottom: 280px;
+    left: 100;
+    animation: race 7s infinite ease-in-out;
+}
+
+.car.green {
+    color: #ef4444;
+    bottom: 350px;
+    left: 160;
+    animation: race 8s infinite ease-in-out;
+}
+
+@keyframes race {
+    0% { transform: translateX(25); }
+    100% { transform: translateX(70vw); } /* Moves across the screen */
+}

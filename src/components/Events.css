@@ -34,7 +34,7 @@ body {
   backdrop-filter: blur(4px);
   background-color: hsla(0, 0%, 100%, 0.074);
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, auto);
   gap: 20px;
   padding: 50px 60px;

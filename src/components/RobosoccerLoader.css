@@ -1,0 +1,102 @@
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  padding: 1rem;
+  overflow: hidden;
+  z-index: 50;
+  backdrop-filter: blur(20px);
+  position: relative;
+}
+
+/* Volleyball */
+.volleyball {
+  color:#f59e0b;  
+  width: 6rem;
+  height: 5rem;
+  position: absolute;
+  top: 41%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+  animation: spin-ball 2s linear infinite, move-ball 4s ease-in-out infinite;
+}
+
+/* Bot */
+.bot
+{
+  color:#3b82f6;
+  width: 5rem;
+  height: 6rem;
+  position: absolute;
+  top: 45%;
+  left: 0%;
+  transform: translate(-50%, -50%);
+  animation: chase-ball 4s ease-in-out infinite;
+}
+
+
+/* Animations */
+@keyframes spin-ball {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes move-ball {
+  0% {
+    left: 35%;
+  }
+  50% {
+    left: 57%;
+  }
+  100% {
+    left: 35%;
+  }
+}
+
+@keyframes chase-ball {
+  0% {
+    left: 32%;
+  }
+  50% {
+    left: 52%;
+  }
+  100% {
+    left: 32%;
+  }
+  
+}
+
+/* Opponent Bot */
+.bot1 {
+  color: #ef4444; /* Red color for differentiation */
+  width: 5rem;
+  height: 6rem;
+  position: absolute;
+  top: 45%;
+  right: 0%;
+  transform: translate(-50%, -50%);
+  animation: chase-opponent 4s ease-in-out infinite;
+}
+
+/* Animations */
+
+/* Opponent bot animation (bot1) */
+@keyframes chase-opponent {
+  0% {
+    right: 51%;
+  }
+  
+  50% {
+    right: 30%; /* Stays near the ball */
+  }
+  
+  100% {
+    right: 51%; /* Returns to original position */
+  }
+}
